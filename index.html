@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Drooble Task</title>
+    <style type="text/css">
+        #overflow {
+            display: none;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.0.0.slim.min.js" integrity="sha256-Rf4BadfyCtsvHmO89BUZcbYvNNvZvOT08ALfEzvCsD0=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <div id="overflow">
+        <div id="container">
+            <div id="video-container">
+                <iframe frameborder="0" allowfullscreen></iframe>
+                <div id="interact-panel">
+                    <ul>
+                        <li class="icon i-like">LIKE</li>
+                        <li class="icon i-share">SHARE</li>
+                        <li class="btn delate">DELATE</li>
+                        <li class="btn edit">EDIT</li>
+                    </ul>
+                </div>
+            </div>
+            <input id="video-input" type="text" name="" placeholder="share youtube video...">
+            <div id="footer">
+                <input id="main-comment" type="text" name="comment" placeholder="comment...">
+                
+                <div class="separator"></div>
+
+                <div class="comment" data-bind="foreach: people">
+                    <div class="person">
+                        <div class="avatar">
+                            <img data-bind="attr: { src: returnImgSrc, title: name }">
+                        </div>
+                        <h3 data-bind="text: returnName"></h3>
+                        <p data-bind="text: returnComentsOn"></p>
+                    </div>
+                    <div class="original-comment">
+                        <p class="music-link" data-bind="text: returnComment">
+                        </p>
+                        <ul>
+                            <li class="icon i-like">LIKE</li>
+                            <li class="icon i-share">SHARE</li>
+                            <li class="icon i-comment">COMMENT</li>
+                            <li class="icon i-report">REPORT</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="reply-comment">
+                    <ul>
+                        <li><strong>COMMENT</strong></li>
+                        <li>PHOTO</li>
+                        <li>FEEDBACK</li>
+                    </ul>
+                    <input id="reply" type="text" placeholder="Reply...">
+                </div>
+            </div>
+            <div id="close-btn"></div>
+        </div>
+    </div>
+    
+    <!-- main script -->
+    <script type="text/javascript">
+        window.addEventListener('load', init);
+    </script>
+</body>
+
+</html>
